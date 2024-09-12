@@ -12,7 +12,7 @@ public class Notas {
     private double nota1;
     private double nota2;
     private double mediaTurma;
-    private double maiorNota;
+    private double maiorNota = 0;
     private double entre6e8;
     private double media;
     
@@ -34,5 +34,11 @@ public class Notas {
     
     public double media(double n1, double n2){
         return this.media = (n1 +n2) /2;
+    }
+    
+    public double calculoMaiorNota(){
+        if (this.media > this.maiorNota){
+            this.maiorNota += this.media;
+        }
     }
 }
