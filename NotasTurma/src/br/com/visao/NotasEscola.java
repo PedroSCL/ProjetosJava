@@ -35,12 +35,19 @@ public class NotasEscola extends javax.swing.JFrame {
         jBcalcular = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLmedia = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTnomeAluno = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLMaiorMedia = new javax.swing.JLabel();
+        jLNomeMaiorNota = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLQTD = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Digite a primeira nota:");
 
-        jLabel3.setText("Digite a primeira nota:");
+        jLabel3.setText("Digite a segunda nota:");
 
         jTnota1.setColumns(4);
 
@@ -60,7 +67,25 @@ public class NotasEscola extends javax.swing.JFrame {
 
         jLabel2.setText("Média:");
 
+        jLmedia.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLmedia.setText("0.00");
+
+        jLabel4.setText("Digite o nome do aluno:");
+
+        jTnomeAluno.setColumns(10);
+
+        jLabel5.setText("Maior média da turma:");
+
+        jLMaiorMedia.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLMaiorMedia.setText("0.00");
+
+        jLNomeMaiorNota.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLNomeMaiorNota.setText("nome");
+
+        jLabel6.setText("Notas entre 6 e 8:");
+
+        jLQTD.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLQTD.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,26 +97,46 @@ public class NotasEscola extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTnota2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel6)
+                                .addGap(29, 29, 29)
+                                .addComponent(jLQTD))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTnota1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(32, 32, 32)
-                                .addComponent(jLmedia))))
+                                .addComponent(jLNomeMaiorNota)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLMaiorMedia))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(jBcalcular)))
-                .addContainerGap(205, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(jLmedia))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTnota2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTnota1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTnomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBcalcular))))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTnomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTnota1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -99,13 +144,22 @@ public class NotasEscola extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTnota2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(44, 44, 44)
                 .addComponent(jBcalcular)
-                .addGap(28, 28, 28)
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLmedia))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLNomeMaiorNota)
+                    .addComponent(jLMaiorMedia))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLQTD))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
@@ -117,9 +171,15 @@ public class NotasEscola extends javax.swing.JFrame {
 
     private void jBcalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcalcularActionPerformed
         // TODO add your handling code here:
+        String nomeDigitado = jTnomeAluno.getText();
+        n.setNome(nomeDigitado);
+        jLNomeMaiorNota.setText(n.getNomeMaiorNota());
         double v1 =Double.valueOf(jTnota1.getText());
         double v2 =Double.valueOf(jTnota2.getText());
         jLmedia.setText("" + n.media(v1, v2));
+        jLMaiorMedia.setText(String.valueOf(n.calculoMaiorNota()));
+        jLNomeMaiorNota.setText(n.getNomeMaiorNota());
+        jLQTD.setText(String.valueOf(n.getEntre6e8()));
     }//GEN-LAST:event_jBcalcularActionPerformed
 
     /**
@@ -159,10 +219,17 @@ public class NotasEscola extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBcalcular;
+    private javax.swing.JLabel jLMaiorMedia;
+    private javax.swing.JLabel jLNomeMaiorNota;
+    private javax.swing.JLabel jLQTD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLmedia;
+    private javax.swing.JTextField jTnomeAluno;
     private javax.swing.JTextField jTnota1;
     private javax.swing.JTextField jTnota2;
     // End of variables declaration//GEN-END:variables
