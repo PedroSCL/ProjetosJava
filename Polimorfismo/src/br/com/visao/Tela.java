@@ -4,8 +4,13 @@
  */
 package br.com.visao;
 
+import br.com.controle.Dividir;
+import br.com.controle.Media;
+import br.com.controle.Multiplicar;
 import br.com.controle.OperacaoMatematica;
 import br.com.controle.Soma;
+import br.com.controle.Subtracao;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,9 +41,13 @@ public class Tela extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTvalor1 = new javax.swing.JTextField();
         jTvalor2 = new javax.swing.JTextField();
-        jBSomar = new javax.swing.JButton();
+        jBSubtrair = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLResultado = new javax.swing.JLabel();
+        jBSomar1 = new javax.swing.JButton();
+        jBDIvidir = new javax.swing.JButton();
+        jBMultiplicar = new javax.swing.JButton();
+        jBMedia1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,11 +64,11 @@ public class Tela extends javax.swing.JFrame {
 
         jTvalor2.setColumns(4);
 
-        jBSomar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jBSomar.setText("+");
-        jBSomar.addActionListener(new java.awt.event.ActionListener() {
+        jBSubtrair.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jBSubtrair.setText("-");
+        jBSubtrair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBSomarActionPerformed(evt);
+                jBSubtrairActionPerformed(evt);
             }
         });
 
@@ -69,6 +78,38 @@ public class Tela extends javax.swing.JFrame {
         jLResultado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLResultado.setText("0.00");
 
+        jBSomar1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jBSomar1.setText("+");
+        jBSomar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSomar1ActionPerformed(evt);
+            }
+        });
+
+        jBDIvidir.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jBDIvidir.setText("/");
+        jBDIvidir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBDIvidirActionPerformed(evt);
+            }
+        });
+
+        jBMultiplicar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jBMultiplicar.setText("*");
+        jBMultiplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBMultiplicarActionPerformed(evt);
+            }
+        });
+
+        jBMedia1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jBMedia1.setText("Média");
+        jBMedia1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBMedia1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,25 +118,35 @@ public class Tela extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(33, 33, 33)
+                                    .addComponent(jTvalor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTvalor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLResultado)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addGap(32, 32, 32)
+                                .addComponent(jBSomar1)
                                 .addGap(33, 33, 33)
-                                .addComponent(jTvalor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTvalor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jBSomar)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLResultado))))
+                                .addComponent(jBSubtrair)
+                                .addGap(36, 36, 36)
+                                .addComponent(jBMultiplicar)
+                                .addGap(41, 41, 41)
+                                .addComponent(jBDIvidir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                                .addComponent(jBMedia1))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(142, 142, 142)
                         .addComponent(jLabel1)))
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,9 +161,14 @@ public class Tela extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTvalor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jBSomar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBSubtrair)
+                    .addComponent(jBDIvidir)
+                    .addComponent(jBMultiplicar)
+                    .addComponent(jBSomar1)
+                    .addComponent(jBMedia1))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLResultado))
@@ -122,12 +178,80 @@ public class Tela extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBSomarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSomarActionPerformed
+    private void jBSubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSubtrairActionPerformed
         // TODO add your handling code here:
-        double pvalor1 = Double.valueOf(jTvalor1.getText());
-        double pvalor2 = Double.valueOf(jTvalor2.getText());
-        jLResultado.setText(String.valueOf(calcule(new Soma(), pvalor1, pvalor2)));
-    }//GEN-LAST:event_jBSomarActionPerformed
+        if(jTvalor1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+            jTvalor1.requestFocus();
+        } else if(jTvalor2.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+            jTvalor2.requestFocus();
+        } else {
+            double pvalor1 = Double.valueOf(jTvalor1.getText());
+            double pvalor2 = Double.valueOf(jTvalor2.getText());
+            jLResultado.setText(String.valueOf(calcule(new Subtracao(), pvalor1, pvalor2)));
+        }
+    }//GEN-LAST:event_jBSubtrairActionPerformed
+
+    private void jBSomar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSomar1ActionPerformed
+        // TODO add your handling code here:
+        if(jTvalor1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+            jTvalor1.requestFocus();
+        } else if(jTvalor2.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+            jTvalor2.requestFocus();
+        } else {
+            double pvalor1 = Double.valueOf(jTvalor1.getText());
+            double pvalor2 = Double.valueOf(jTvalor2.getText());
+            jLResultado.setText(String.valueOf(calcule(new Soma(), pvalor1, pvalor2)));
+        }
+    }//GEN-LAST:event_jBSomar1ActionPerformed
+
+    private void jBDIvidirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDIvidirActionPerformed
+        // TODO add your handling code here:
+        if(jTvalor1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+            jTvalor1.requestFocus();
+        } else if(jTvalor2.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+            jTvalor2.requestFocus();
+        } else {
+            double pvalor1 = Double.valueOf(jTvalor1.getText());
+            double pvalor2 = Double.valueOf(jTvalor2.getText());
+            jLResultado.setText(String.valueOf(calcule(new Dividir(), pvalor1, pvalor2)));
+        }
+    }//GEN-LAST:event_jBDIvidirActionPerformed
+
+    private void jBMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMultiplicarActionPerformed
+        // TODO add your handling code here:
+        if(jTvalor1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+            jTvalor1.requestFocus();
+        } else if(jTvalor2.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+            jTvalor2.requestFocus();
+        } else {
+            double pvalor1 = Double.valueOf(jTvalor1.getText());
+            double pvalor2 = Double.valueOf(jTvalor2.getText());
+            jLResultado.setText(String.valueOf(calcule(new Multiplicar(), pvalor1, pvalor2)));
+        }
+    }//GEN-LAST:event_jBMultiplicarActionPerformed
+
+    private void jBMedia1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMedia1ActionPerformed
+        // TODO add your handling code here:
+        if(jTvalor1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+            jTvalor1.requestFocus();
+        } else if(jTvalor2.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+            jTvalor2.requestFocus();
+        } else {
+            double pvalor1 = Double.valueOf(jTvalor1.getText());
+            double pvalor2 = Double.valueOf(jTvalor2.getText());
+            jLResultado.setText(String.valueOf(calcule(new Media(), pvalor1, pvalor2)));
+        }
+    }//GEN-LAST:event_jBMedia1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,7 +289,11 @@ public class Tela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBSomar;
+    private javax.swing.JButton jBDIvidir;
+    private javax.swing.JButton jBMedia1;
+    private javax.swing.JButton jBMultiplicar;
+    private javax.swing.JButton jBSomar1;
+    private javax.swing.JButton jBSubtrair;
     private javax.swing.JLabel jLResultado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
